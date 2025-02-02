@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import toast from "react-hot-toast";
 import {axiosInstance} from "../lib/axios.js"
+
 export const useAuthStore = create((set)=>({
     authUser: null,
     isSigningUp: false,
@@ -52,4 +53,13 @@ export const useAuthStore = create((set)=>({
         toast.error(error.response.data.message);
       }
     },
+    signout: async (data) =>{
+      try {
+        await axiosInstance.post("/auth/signout", data);
+        set({ authUser : null });
+        toast.success("회원 탈퇴 완료");
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    }
 }));
