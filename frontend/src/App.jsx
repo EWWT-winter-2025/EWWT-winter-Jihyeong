@@ -11,7 +11,6 @@ const App = () => {
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
-  console.log({ authUser });
   if (isCheckingAuth && !authUser)
       return (
     <div>잠시만 기다려주세요요</div>);
