@@ -59,7 +59,7 @@ const AddGroup = () => {
           <div className="flex items-center gap-5">
             <label>그룹 색상</label>
             <input
-              value={groupContent.color}
+              value={groupContent.color || "#ffffff"}
               type="color"
               onChange={(e)=>{
                 setGroupContent((prev)=>({...prev, color: e.target.value}))
